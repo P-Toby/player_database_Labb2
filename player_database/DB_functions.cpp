@@ -4,9 +4,3 @@
 #include "Player.h"
 
 using namespace std;
-
-void PlayerReader(string fileName)
-{
-
-	
-}

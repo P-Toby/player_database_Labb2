@@ -21,6 +21,9 @@ int main()
 	string readFirstName;
 	string readLastName;
 	int readBirthyear = 0;
+	int readNumOfMatches = 0;
+
+	int numOfPlayersFromFile;
 
 	ifstream dataIn;
 	dataIn.open(fileName.c_str());
@@ -31,23 +34,32 @@ int main()
 	//that way we know how many players there are in the file
 	string aLine;
 	dataIn >> aLine;
-	//cout << "AS STRING " << aLine << endl;
-	readBirthyear = stoi(aLine);
-	//cout << "AS INT " << readBirthyear << endl;
+	numOfPlayersFromFile = stoi(aLine); //Now we have the amount of players from the file as an int
 
+	Player* playerArr;
+	playerArr = new Player[numOfPlayersFromFile]; //Create an array to hold all of the players
+
+	/*
+	1. read number of structures from file, create array with n structures for players
+	2. start read loop for n structures(function?)
+		1. read first name
+		2. read last name
+		3. read birth year
+		4. read number of matches. 
+		5. use number of matches to read x lines, place each in array of matches in player structures
+	*/
 
 	//We will now read from the rest of the file
 	if (dataIn.is_open())
 	{
-		dataIn >> aLine;
-
 		while (!dataIn.eof())
 		{
 			//This currently prints out all of the lines
 			cout << aLine << endl;
 			dataIn >> aLine;
+
+
 		}
-		
 	}
 	else
 	{
