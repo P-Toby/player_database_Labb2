@@ -27,6 +27,7 @@ int main()
 		dataIn >> aLine;
 		while (!dataIn.eof())
 		{
+			//This currently prints out all of the lines
 			cout << aLine << endl;
 			dataIn >> aLine;
 		}
