@@ -20,6 +20,7 @@ int main()
 	ifstream dataIn;
 	dataIn.open(fileName.c_str());
 
+	//We will now read from the file
 	if (dataIn.is_open())
 	{
 		string aLine;
