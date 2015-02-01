@@ -79,6 +79,7 @@
     <Text Include="playerDB_list.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DB_functions.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="playerDB_main.cpp" />
   </ItemGroup>

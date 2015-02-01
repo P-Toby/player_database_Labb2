@@ -11,6 +11,8 @@ Player::Player()
 	firstName = "John";
 	lastName = "Doe";
 	birthYear = 1993;
+	numberOfMatches = 0;
+	matchDates = NULL;
 }
 
 Player::Player(string firstNameIn, string lastNameIn, int birthYearIn)
@@ -18,6 +20,8 @@ Player::Player(string firstNameIn, string lastNameIn, int birthYearIn)
 	firstName = firstNameIn;
 	lastName = lastNameIn;
 	birthYear = birthYearIn;
+	numberOfMatches = 0;
+	matchDates = NULL;
 }
 
 Player::~Player()
