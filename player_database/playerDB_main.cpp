@@ -50,15 +50,39 @@ int main()
 	*/
 
 	//We will now read from the rest of the file
+
+	int matchDatesNum = 0; //Temp variable that holds an int representing the amount of dates
+
 	if (dataIn.is_open())
 	{
-		while (!dataIn.eof())
-		{
+		//while (!dataIn.eof())
+		//{
+			//cout << "LOOPING" << endl;
 			//This currently prints out all of the lines
-			cout << aLine << endl;
+			//cout << aLine << endl;
+			//dataIn >> aLine;
+
+		for (int i = 0; i < numOfPlayersFromFile && !dataIn.eof(); ++i)
+		{
+
+			matchDatesNum = 0; //Reset the number of match dates found every time we loop
+
+			//cout << "FOR LOOPING" << endl;
 			dataIn >> aLine;
+			playerArr[i].firstName = aLine;
+			dataIn >> aLine;
+			playerArr[i].lastName = aLine;
+			dataIn >> aLine;
+			playerArr[i].birthYear = stoi(aLine);
+			dataIn >> aLine; //We now read the number of match dates
+			matchDatesNum= stoi(aLine);
 
-
+			for (int j = 0; j < matchDatesNum; ++j)
+			{
+				//Loop the amount of match dates found
+				//WE DO NOT STORE MATCHDATES YET
+				dataIn >> aLine;
+			}
 		}
 	}
 	else
@@ -66,6 +90,8 @@ int main()
 		cout << "Cannot open file" << endl;
 	}
 	
+
+	cout << playerArr[0].toString();
 
 	system("PAUSE");
 
