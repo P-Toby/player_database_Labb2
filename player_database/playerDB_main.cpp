@@ -49,9 +49,8 @@ int main()
 		5. use number of matches to read x lines, place each in array of matches in player structures
 	*/
 
-	//We will now read from the rest of the file
+	//We will now read from the rest of the file and store all of the players found
 	int matchDatesNum = 0; //Temp variable that holds an int representing the amount of dates
-
 	if (dataIn.is_open())
 	{
 		for (int i = 0; i < numOfPlayersFromFile && !dataIn.eof(); ++i)
@@ -74,7 +73,6 @@ int main()
 			{
 				//Loop the amount of match dates found
 				dataIn >> aLine;
-				//cout << aLine << endl; //TEST
 				playerArr[i].addMatchDate(aLine);
 			}
 		}
