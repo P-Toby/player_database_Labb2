@@ -69,11 +69,12 @@ int main()
 			dataIn >> aLine; //We now read the number of match dates
 			matchDatesNum= stoi(aLine);
 
+			//cout << "DATE: " << endl;
 			for (int j = 0; j < matchDatesNum; ++j)
 			{
 				//Loop the amount of match dates found
-				//WE DO NOT STORE MATCHDATES YET
 				dataIn >> aLine;
+				//cout << aLine << endl; //TEST
 				playerArr[i].addMatchDate(aLine);
 			}
 		}
@@ -83,9 +84,14 @@ int main()
 		cout << "Cannot open file" << endl;
 	}
 	
+	//We print out all of the players stats using the toString function
+	for (int i = 0; i < numOfPlayersFromFile; ++i)
+	{
+		cout << playerArr[i].toString() << endl;
+	}
+	
 
-	//TEST
-	cout << playerArr[0].toString();
+
 
 	system("PAUSE");
 

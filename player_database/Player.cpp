@@ -36,13 +36,16 @@ string Player::toString()
 	//We will loop through the array and build a string with all of the match dates and add commasa inbetween
 	string matches;
 	
-	
-	for (int i = 0; i < numberOfMatches - 1; ++i)
+	if (numberOfMatches != 1)
 	{
-		matches = matches + matchDates[i] + ", ";
-	}
+		for (int i = 0; i < numberOfMatches - 1; ++i)
+		{
+			matches = matches + matchDates[i] + ", ";
+		}
 
-	matches = matches + matchDates[numberOfMatches]; //Append the very last match.
+	}
+	
+	matches = matches + matchDates[numberOfMatches - 1]; //Append the very last match.
 	
 
 	string result = "Name: " + firstName + " " + lastName + "\nBirthyear: " + birthyearAsString + "\nMatchdates: " + matches + "\n";
@@ -78,6 +81,7 @@ void Player::addMatchDate(string date)
 
 		matchDates = tmp; //Set the old matchDates pointer to be equal the new array that was created with tmp
 
+		matchDates[numberOfMatches - 1] = date; //Finally we add the new match date to the new, larger, array
 	}
 }
 
