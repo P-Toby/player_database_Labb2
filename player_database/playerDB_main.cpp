@@ -50,18 +50,10 @@ int main()
 	*/
 
 	//We will now read from the rest of the file
-
 	int matchDatesNum = 0; //Temp variable that holds an int representing the amount of dates
 
 	if (dataIn.is_open())
 	{
-		//while (!dataIn.eof())
-		//{
-			//cout << "LOOPING" << endl;
-			//This currently prints out all of the lines
-			//cout << aLine << endl;
-			//dataIn >> aLine;
-
 		for (int i = 0; i < numOfPlayersFromFile && !dataIn.eof(); ++i)
 		{
 
@@ -91,6 +83,7 @@ int main()
 	}
 	
 
+	//TEST
 	cout << playerArr[0].toString();
 
 	system("PAUSE");

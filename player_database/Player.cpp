@@ -45,14 +45,17 @@ string Player::toString()
 
 	//We will loop through the array and build a string with all of the match dates and add commasa inbetween
 	string matches;
+	/*
+	
 	for (int i = 0; i < numberOfMatches - 1; ++i)
 	{
 		matches = matches + matchDates[i] + ", ";
 	}
 
 	matches = matches + matchDates[numberOfMatches]; //Append the very last match.
+	*/
 
-	string result = "\nName: " + firstName + "\nBirthyear: " + birthyearAsString + "\nMatchdates: " + matches;
+	string result = "Name: " + firstName + " " + lastName + "\nBirthyear: " + birthyearAsString + "\nMatchdates: " + matches + "\n";
 
 	return result; //We resturn the completed string so that I may be printed out
 }

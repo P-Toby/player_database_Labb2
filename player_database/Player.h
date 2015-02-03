@@ -23,6 +23,7 @@ public:
 	Player(std::string firstName, std::string lastName, int birthYear);
 	~Player();
 	void save(std::ofstream* out);
+	//void setMatchDate();
 
 private:
 	int numberOfMatches;
