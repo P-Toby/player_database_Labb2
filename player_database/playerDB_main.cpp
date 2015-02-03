@@ -74,6 +74,7 @@ int main()
 				//Loop the amount of match dates found
 				//WE DO NOT STORE MATCHDATES YET
 				dataIn >> aLine;
+				playerArr[i].addMatchDate(aLine);
 			}
 		}
 	}

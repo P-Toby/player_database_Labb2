@@ -14,7 +14,7 @@ public:
 	std::string firstName;
 	std::string lastName;
 	int birthYear;
-	std::string* matchDates;
+	std::string* matchDates; //Points on a string array holding dates
 
 	//Functions
 	std::string toString();
@@ -23,7 +23,6 @@ public:
 	Player(std::string firstName, std::string lastName, int birthYear);
 	~Player();
 	void save(std::ofstream* out);
-	//void setMatchDate();
 
 private:
 	int numberOfMatches;
