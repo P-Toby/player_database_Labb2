@@ -27,7 +27,6 @@ Player::Player(string firstNameIn, string lastNameIn, int birthYearIn)
 string Player::toString()
 {
 	//In this function we create a string that we can use to easily print out all of the relevant data about a player
-
 	string birthyearAsString;
 	ostringstream convert;
 	convert << birthYear;
@@ -42,12 +41,10 @@ string Player::toString()
 		{
 			matches = matches + matchDates[i] + ", ";
 		}
-
 	}
 	
 	matches = matches + matchDates[numberOfMatches - 1]; //Append the very last match.
 	
-
 	string result = "Name: " + firstName + " " + lastName + "\nBirthyear: " + birthyearAsString + "\nMatchdates: " + matches + "\n";
 
 	return result; //We resturn the completed string so that I may be printed out
@@ -93,4 +90,14 @@ Player::~Player()
 void save(ofstream* out)
 {
 
+}
+
+int Player::fetchDatecount()
+{
+	//This way we can fetch the number of dates stored and send it where needed
+	int dateCount = 0;
+
+	dateCount = numberOfMatches;
+
+	return dateCount;
 }

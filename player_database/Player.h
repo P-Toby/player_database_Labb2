@@ -14,19 +14,19 @@ public:
 	std::string firstName;
 	std::string lastName;
 	int birthYear;
-	std::string* matchDates; //Points to a string array holding dates
+	std::string* matchDates; //Points to an array holding dates
 
 	//Functions
 	std::string toString();
-	void addMatchDate(std::string date);
 	Player();
 	Player(std::string firstName, std::string lastName, int birthYear);
-	~Player();
+	~Player(); //Deconstructor
+	void addMatchDate(std::string date);
 	void save(std::ofstream* out);
+	int fetchDatecount();
 
 private:
 	int numberOfMatches;
 };
-
 
 #endif

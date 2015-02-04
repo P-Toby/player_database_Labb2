@@ -29,8 +29,7 @@ int main()
 	ifstream dataIn;
 	dataIn.open(fileName.c_str());
 
-	
-	
+
 	//We read the very first line and convert it to an int
 	//that way we know how many players there are in the file
 	string aLine;
@@ -59,7 +58,7 @@ int main()
 
 			matchDatesNum = 0; //Reset the number of match dates found every time we loop
 
-			//cout << "FOR LOOPING" << endl;
+			//We now read from the file and store the data in a player object
 			dataIn >> aLine;
 			playerArr[i].firstName = aLine;
 			dataIn >> aLine;
@@ -69,7 +68,6 @@ int main()
 			dataIn >> aLine; //We now read the number of match dates
 			matchDatesNum= stoi(aLine);
 
-			//cout << "DATE: " << endl;
 			for (int j = 0; j < matchDatesNum; ++j)
 			{
 				//Loop the amount of match dates found
@@ -93,7 +91,7 @@ int main()
 
 		if (choice == 1)
 		{
-			//delete[] playerArr;
+			//TODO MAKE SURE THAT NO MEMORY LEAKS OCCUR
 			quit = 1;
 		}
 		else if (choice == 2)
@@ -128,14 +126,40 @@ int main()
 		else if (choice == 4)
 		{
 			//We will now save any changes made to the txt file
+			ofstream dataOut;
+			dataOut.open("playerDB_list.txt");
+
+			if (dataOut.is_open())
+			{
+				int dateHolder = 0; //Temp var to hold the number of dates
+
+				dataOut << numOfPlayersFromFile << endl; //Write number of players first
+
+				for (int i = 0; i < numOfPlayersFromFile; ++i)
+				{
+					//We now write back all of the data to the file, including modifications
+					dataOut << playerArr[i].firstName << endl;
+					dataOut << playerArr[i].lastName << endl;
+					dataOut << playerArr[i].birthYear << endl;
+					dateHolder = playerArr[i].fetchDatecount();
+					dataOut << dateHolder << endl;
+
+					for (int j = 0; j < dateHolder; ++j)
+					{
+						dataOut << playerArr[i].matchDates[j] << endl;
+					}
+					
+				}
+
+				dataOut.close();
+			}
+			else
+			{
+				cout << "Error, could not open file!";
+			}
 		}
 
 	}
-
-	
-	
-
-
 
 	system("PAUSE");
 
