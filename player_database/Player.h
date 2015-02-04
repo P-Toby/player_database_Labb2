@@ -22,8 +22,7 @@ public:
 	Player(std::string firstName, std::string lastName, int birthYear);
 	~Player(); //Deconstructor
 	void addMatchDate(std::string date);
-	void save(std::ofstream* out);
-	int fetchDatecount();
+	void save(std::ofstream& out);
 
 private:
 	int numberOfMatches;

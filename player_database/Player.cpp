@@ -87,17 +87,17 @@ Player::~Player()
 	//Deconstructor
 }
 
-void save(ofstream* out)
+void Player::save(ofstream& out)
 {
+		//We now write back all of the data to the file, including modifications
+		out << firstName << endl;
+		out << lastName << endl;
+		out << birthYear << endl;
+		out << numberOfMatches << endl;
 
-}
+		for (int j = 0; j < numberOfMatches; ++j)
+		{
+			out << matchDates[j] << endl;
+		}
 
-int Player::fetchDatecount()
-{
-	//This way we can fetch the number of dates stored and send it where needed
-	int dateCount = 0;
-
-	dateCount = numberOfMatches;
-
-	return dateCount;
 }

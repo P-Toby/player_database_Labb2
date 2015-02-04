@@ -131,24 +131,12 @@ int main()
 
 			if (dataOut.is_open())
 			{
-				int dateHolder = 0; //Temp var to hold the number of dates
-
 				dataOut << numOfPlayersFromFile << endl; //Write number of players first
 
 				for (int i = 0; i < numOfPlayersFromFile; ++i)
 				{
-					//We now write back all of the data to the file, including modifications
-					dataOut << playerArr[i].firstName << endl;
-					dataOut << playerArr[i].lastName << endl;
-					dataOut << playerArr[i].birthYear << endl;
-					dateHolder = playerArr[i].fetchDatecount();
-					dataOut << dateHolder << endl;
-
-					for (int j = 0; j < dateHolder; ++j)
-					{
-						dataOut << playerArr[i].matchDates[j] << endl;
-					}
-					
+					//We now write back all of the data to the file, including modifications using the save function
+					playerArr[i].save(dataOut);
 				}
 
 				dataOut.close();
