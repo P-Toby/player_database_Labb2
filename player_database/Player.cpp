@@ -84,7 +84,8 @@ void Player::addMatchDate(string date)
 
 Player::~Player()
 {
-	//Deconstructor
+	//Destructor
+	delete[] matchDates;
 }
 
 void Player::save(ofstream& out)
@@ -99,5 +100,4 @@ void Player::save(ofstream& out)
 		{
 			out << matchDates[j] << endl;
 		}
-
 }

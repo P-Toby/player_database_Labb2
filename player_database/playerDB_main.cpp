@@ -91,7 +91,10 @@ int main()
 
 		if (choice == 1)
 		{
-			//TODO MAKE SURE THAT NO MEMORY LEAKS OCCUR
+			//When we delete the playerArr the delete command will 
+			//first trigger each objects destructor which deletes 
+			//their respective dynamic arrays
+			delete[] playerArr;
 			quit = 1;
 		}
 		else if (choice == 2)
