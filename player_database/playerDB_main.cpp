@@ -5,6 +5,7 @@
 #include <crtdbg.h>
 #include <fstream>
 #include "Player.h"
+#include "DB_functions.h"
 
 using namespace std;
 
@@ -82,11 +83,56 @@ int main()
 		cout << "Cannot open file" << endl;
 	}
 	
-	//We print out all of the players stats using the toString function
-	for (int i = 0; i < numOfPlayersFromFile; ++i)
+
+	int quit = 0;
+	int choice = 0; //Variable that is altered by user to decide which function to run.
+
+	while (quit != 1)
 	{
-		cout << playerArr[i].toString() << endl;
+		choice = menu();
+
+		if (choice == 1)
+		{
+			//delete[] playerArr;
+			quit = 1;
+		}
+		else if (choice == 2)
+		{
+			//We print out all of the players stats using the toString function
+			for (int i = 0; i < numOfPlayersFromFile; ++i)
+			{
+				cout << "#" << i+1 << " " << playerArr[i].toString() << endl;
+			}
+		}
+		else if (choice == 3)
+		{
+			//This is the choice the user selects to add new dates to the players
+			int playerChoice = 0;
+			string newDate;
+			cout << "\nWhich player would you like to add a date for?" << "\nUse function number 2 to see the numbers associated with each player." << endl;
+		
+			cin >> playerChoice;
+
+			while (!(playerChoice <= numOfPlayersFromFile && playerChoice >= 1))
+			{
+				//The player enters the number of the player that they wish to add a date for
+				cout << "Invalid input!\n" << "Enter a number between 1 and " << numOfPlayersFromFile << endl;
+				cin >> playerChoice;
+			}
+
+			cout << "Enter the new date that you wish to add, in the format YYYYMMDD: ";
+			cin >> newDate;
+			playerArr[playerChoice - 1].addMatchDate(newDate);
+			
+		}
+		else if (choice == 4)
+		{
+			//We will now save any changes made to the txt file
+		}
+
 	}
+
+	
 	
 
 

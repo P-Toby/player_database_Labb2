@@ -14,7 +14,7 @@ public:
 	std::string firstName;
 	std::string lastName;
 	int birthYear;
-	std::string* matchDates; //Points on a string array holding dates
+	std::string* matchDates; //Points to a string array holding dates
 
 	//Functions
 	std::string toString();
