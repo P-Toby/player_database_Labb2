@@ -21,55 +21,9 @@ int main()
 	int readNumOfMatches = 0;
 	int numOfPlayersFromFile = 0;
 
-	//ifstream dataIn;
-	//dataIn.open(fileName.c_str());
-
-
-	//We read the very first line and convert it to an int
-	//that way we know how many players there are in the file
-	//string aLine;
-	//dataIn >> aLine;
-	//numOfPlayersFromFile = stoi(aLine); //Now we have the amount of players from the file as an int
-
 	Player* playerArr = nullptr;
 	playerArr = getTeam(numOfPlayersFromFile, fileName); //Call the function that fetches all the players from the file
 	
-
-	/*
-	playerArr = new Player[numOfPlayersFromFile]; //Create an array to hold all of the players
-
-	//We will now read from the rest of the file and store all of the players found
-	int matchDatesNum = 0; //Temp variable that holds an int representing the amount of dates
-	if (dataIn.is_open())
-	{
-		for (int i = 0; i < numOfPlayersFromFile && !dataIn.eof(); ++i)
-		{
-
-			matchDatesNum = 0; //Reset the number of match dates found every time we loop
-
-			//We now read from the file and store the data in a player object
-			dataIn >> aLine;
-			playerArr[i].firstName = aLine;
-			dataIn >> aLine;
-			playerArr[i].lastName = aLine;
-			dataIn >> aLine;
-			playerArr[i].birthYear = stoi(aLine);
-			dataIn >> aLine; //We now read the number of match dates
-			matchDatesNum= stoi(aLine);
-
-			for (int j = 0; j < matchDatesNum; ++j)
-			{
-				//Loop the amount of match dates found
-				dataIn >> aLine;
-				playerArr[i].addMatchDate(aLine);
-			}
-		}
-	}
-	else
-	{
-		cout << "Cannot open file" << endl;
-	}
-	*/
 
 	int quit = 0;
 	int choice = 0; //Variable that is altered by user to decide which function to run.
@@ -89,7 +43,6 @@ int main()
 		}
 		else if (choice == 2)
 		{
-			//system("CLS");
 			//We print out all of the players stats using the toString function
 			for (int i = 0; i < numOfPlayersFromFile; ++i)
 			{
@@ -98,7 +51,6 @@ int main()
 		}
 		else if (choice == 3)
 		{
-			system("CLS");
 			//This is the choice the user selects to add new dates to the players
 			int playerChoice = 0;
 			string newDate;
@@ -120,7 +72,6 @@ int main()
 		}
 		else if (choice == 4)
 		{
-			system("CLS");
 			//We will now save any changes made to the txt file
 			ofstream dataOut;
 			dataOut.open("playerDB_list.txt");
@@ -141,6 +92,32 @@ int main()
 			{
 				cout << "Error, could not open file!";
 			}
+		}
+		else if (choice == 5)
+		{
+			//Not part of the main program!
+			cout << "\nSECRET FUNCTION!" << endl;
+
+			Player newPlayer = playerArr[0];
+			cout << playerArr[0].toString();
+			//Change the name
+			newPlayer.firstName = "Kalle";
+			cout << "Name changed" << endl;
+			newPlayer.lastName = "Svensson";
+			cout << "Lastname changed" << endl;
+			newPlayer.birthYear = 1929;
+			cout << "Birthyear changed" << endl;
+			cout << newPlayer.toString();
+			//add new matchdate
+			newPlayer.addMatchDate("tst"); //BREAKS ORIGINAL
+			cout << newPlayer.toString();
+			cout << playerArr[0].toString() << endl; 
+			/*If we do not have a copy constructor and we add a date 
+			to the newPlayer, the addMatchDate function will create a new array and delete the old one,
+			however, the original object will still be referencing the old allocated space that no longer exists.
+			This is the cause of the error. But now that we copy the arrays properly, that issue no longer occurs,
+			since they have their own respective matchDate arrays.
+			*/
 		}
 
 	}

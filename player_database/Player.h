@@ -21,6 +21,7 @@ public:
 	Player();
 	Player(std::string firstName, std::string lastName, int birthYear);
 	~Player(); //Deconstructor
+	Player(const Player& other); //cctor
 	void addMatchDate(std::string date);
 	void save(std::ofstream& out);
 

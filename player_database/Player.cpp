@@ -1,4 +1,4 @@
-#include <iostream> //c++
+#include <iostream> 
 #include <string>
 #include <fstream>
 #include "player.h"
@@ -22,6 +22,24 @@ Player::Player(string firstNameIn, string lastNameIn, int birthYearIn)
 	birthYear = birthYearIn;
 	numberOfMatches = 0;
 	matchDates = nullptr;
+}
+
+Player::Player(const Player& other)
+{
+	//This is the copy constructor
+	firstName = other.firstName;
+	lastName = other.lastName;
+	birthYear = other.birthYear;
+	numberOfMatches = other.numberOfMatches;
+	//Copy string array
+	matchDates = new string[numberOfMatches];
+	//matchDates = other.matchDates;
+
+	for (int i = 0; i < numberOfMatches; ++i)
+	{
+		matchDates[i] = other.matchDates[i];
+	}
+
 }
 
 string Player::toString()
@@ -101,3 +119,4 @@ void Player::save(ofstream& out)
 			out << matchDates[j] << endl;
 		}
 }
+

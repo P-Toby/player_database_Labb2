@@ -21,9 +21,10 @@ Sherman
 Andrew
 Luck
 1989
-2
-20150119
+3
 20141221
+20141228
+20150119
 Philip
 Rivers
 1981
