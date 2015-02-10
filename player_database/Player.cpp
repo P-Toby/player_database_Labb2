@@ -24,6 +24,7 @@ Player::Player(string firstNameIn, string lastNameIn, int birthYearIn)
 	matchDates = nullptr;
 }
 
+
 Player::Player(const Player& other)
 {
 	//This is the copy constructor
@@ -33,13 +34,28 @@ Player::Player(const Player& other)
 	numberOfMatches = other.numberOfMatches;
 	//Copy string array
 	matchDates = new string[numberOfMatches];
-	//matchDates = other.matchDates;
 
 	for (int i = 0; i < numberOfMatches; ++i)
 	{
 		matchDates[i] = other.matchDates[i];
 	}
 
+}
+
+void Player::operator=(const Player& other)
+{
+	//This is the assignment operator
+	firstName = other.firstName;
+	lastName = other.lastName;
+	birthYear = other.birthYear;
+	numberOfMatches = other.numberOfMatches;
+	//Copy string array
+	matchDates = new string[numberOfMatches];
+
+	for (int i = 0; i < numberOfMatches; ++i)
+	{
+		matchDates[i] = other.matchDates[i];
+	}
 }
 
 string Player::toString()
@@ -61,7 +77,10 @@ string Player::toString()
 		}
 	}
 	
-	matches = matches + matchDates[numberOfMatches - 1]; //Append the very last match.
+	if (numberOfMatches > 0)
+	{
+		matches = matches + matchDates[numberOfMatches - 1]; //Append the very last match.
+	}
 	
 	string result = "Name: " + firstName + " " + lastName + "\nBirthyear: " + birthyearAsString + "\nMatchdates: " + matches + "\n";
 

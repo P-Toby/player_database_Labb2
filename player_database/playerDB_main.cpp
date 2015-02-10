@@ -98,6 +98,7 @@ int main()
 			//Not part of the main program!
 			cout << "\nSECRET FUNCTION!" << endl;
 
+			
 			Player newPlayer = playerArr[0];
 			cout << playerArr[0].toString();
 			//Change the name
@@ -117,6 +118,26 @@ int main()
 			however, the original object will still be referencing the old allocated space that no longer exists.
 			This is the cause of the error. But now that we copy the arrays properly, that issue no longer occurs,
 			since they have their own respective matchDate arrays.
+			*/
+			
+			cout << endl << "////////////////////////////////" << endl;
+
+			Player newPlayer2("", "", 0);
+			cout << newPlayer2.toString();
+			//copy existing object
+			newPlayer2 = newPlayer;
+			cout << newPlayer2.toString();
+			//insert name
+			newPlayer2.firstName = "Marta";
+			newPlayer2.lastName = "Vieira";
+			//add matchdate for the new player
+			newPlayer2.addMatchDate("20141231");
+			//display the player info
+			cout << newPlayer2.toString();
+			cout << newPlayer.toString();
+			/*The same issue that was found when we used the default copy constructor
+			also applies to the default assignment operator. It has since been fixed
+			by defining our own custom assignment operator
 			*/
 		}
 
